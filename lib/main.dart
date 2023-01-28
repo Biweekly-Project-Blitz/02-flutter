@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xff282d39),
       ),
       themeMode: ThemeMode.dark,
-      home: const MyHomePage(title: 'A fuckin PHONE APP'),
+      home: const MyHomePage(title: '"Cool Page Title"'),
     );
   }
 }
@@ -185,7 +185,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 Text(
                   '${maxVolume.toInt()}',
                   style: Theme.of(context).textTheme.headline4,
-                )
+                ),
+                SizedBox(
+                    width: 300,
+                    height: 300,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                          color: maxVolume > 50
+                              ? Colors.red
+                              : maxVolume > 40
+                                  ? Color.fromRGBO(255, 0, 0, (maxVolume - 40) / 10)
+                                  : Colors.transparent),
+                    ))
               ],
             ),
           ),
