@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xff282d39),
       ),
       themeMode: ThemeMode.dark,
-      home: const MyHomePage(title: '"Cool Page Title"'),
+      home: const MyHomePage(title: 'Shush'),
     );
   }
 }
@@ -45,6 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   final recorder = FlutterSoundRecorder();
   bool isRecorderReady = false;
+  int theThreshold = 55;
 
   final streamUpdateMs = 200;
 
@@ -191,10 +192,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 300,
                     child: DecoratedBox(
                       decoration: BoxDecoration(
-                          color: maxVolume > 50
+                          color: maxVolume > theThreshold
                               ? Colors.red
-                              : maxVolume > 40
-                                  ? Color.fromRGBO(255, 0, 0, (maxVolume - 40) / 10)
+                              : maxVolume > (theThreshold - 10)
+                                  ? Color.fromRGBO(255, 0, 0, (maxVolume - (theThreshold - 10)) / 10)
                                   : Colors.transparent),
                     ))
               ],
