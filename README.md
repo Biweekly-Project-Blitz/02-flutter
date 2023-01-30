@@ -13,3 +13,4 @@ Here are some features I want to add at some point if/when i work on this again:
 - make it work for bluetooth-connected headset
 - build a stand for it for sitting on my desk and charging while showing the app
 - make it beep in my headphones when im being too loud
+- make it so you can rotate the screen all the way
